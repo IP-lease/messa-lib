@@ -1,8 +1,7 @@
-package com.iplease.lib.messa.event.ip.demand
-
+package com.iplease.lib.messa.error.data.ip.demand
 import java.time.LocalDate
 
-data class IpDemandSuccessEvent (
+data class IpDemandSuccessError (
     val demandUuid: Long,
     val issuerUuid: Long,
     val assignerUuid: Long,

@@ -1,4 +1,4 @@
-package com.iplease.lib.messa.error.ip.release
+package com.iplease.lib.messa.error.data.ip.release
 
 data class IpReleaseSuccessError (
     val assignedIpUuid: Long,
