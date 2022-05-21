@@ -1,4 +1,4 @@
-package com.iplease.lib.messa.ip.release
+package com.iplease.lib.messa.event.ip.release
 
 data class IpReleaseSuccessEvent (
     val assignedIpUuid: Long,

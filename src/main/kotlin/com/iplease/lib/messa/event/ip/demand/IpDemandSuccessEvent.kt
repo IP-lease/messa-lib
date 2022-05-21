@@ -1,4 +1,4 @@
-package com.iplease.lib.messa.ip.demand
+package com.iplease.lib.messa.event.ip.demand
 
 import java.time.LocalDate
 
