@@ -1,10 +1,12 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.5.10'
     id 'java'
+    id 'signing'
+    id 'maven-publish'
+    id 'org.jetbrains.kotlin.jvm' version '1.5.10'
 }
 
 group 'com.iplease'
-version '1.0-SNAPSHOT'
+version '1.0-rc1'
 
 repositories {
     mavenCentral()
@@ -13,10 +15,68 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
 
 test {
     useJUnitPlatform()
+}
+task javadocJar(type: Jar) {
+    archiveClassifier.set 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    archiveClassifier.set 'sources'
+    from sourceSets.main.allSource
+}
+
+signing {
+    sign publishing.publications
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'io.github.key-del-jeeinho'
+            artifactId = 'messa-lib'
+            version = '1.0.0-rc1'
+            pom {
+                name = 'Messa Library'
+                description = "light version of bento-iplease"
+                url = 'https://github.com/key-del-jeeinho/messa-lib'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'velocia'
+                        name = 'JeeInho'
+                        email = 'develop.raul@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/key-del-jeeinho/messa-lib.git'
+                    developerConnection = 'scm:git:ssh://github.com/key-del-jeeinho/messa-lib.git'
+                    url = 'https://github.com/key-del-jeeinho/messa-lib/'
+                }
+            }
+
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+        }
+    }
+    repositories {
+        maven {
+            credentials {
+                username = project.ossrhUsername
+                password = project.ossrhPassword
+            }
+            name = "OSSRH"
+            url = 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
+        }
+    }
 }
