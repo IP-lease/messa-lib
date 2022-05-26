@@ -1,5 +1,6 @@
 package com.iplease.lib.messa.event.data.ip.demand
 
+import com.iplease.lib.messa.event.data.EventData
 import java.time.LocalDate
 
 data class IpDemandSuccessEvent (
@@ -12,4 +13,4 @@ data class IpDemandSuccessEvent (
     val ipSecond: Int,
     val ipThird: Int,
     val ipFourth: Int
-)
+): EventData

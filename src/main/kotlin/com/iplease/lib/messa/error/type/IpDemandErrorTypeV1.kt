@@ -1,5 +1,6 @@
 package com.iplease.lib.messa.error.type
 
+import com.iplease.lib.messa.error.data.ErrorData
 import com.iplease.lib.messa.error.data.ip.demand.IpDemandCreateError
 import com.iplease.lib.messa.error.data.ip.demand.IpDemandFailedError
 import com.iplease.lib.messa.error.data.ip.demand.IpDemandSuccessError
@@ -11,9 +12,9 @@ import kotlin.reflect.KClass
 
 @Suppress("unused")
 enum class IpDemandErrorTypeV1(
-    val routingKey: String,
-    val errorPayloadType: KClass<*>
-) {
+    private val routingKey: String,
+    private val errorPayloadType: KClass<out ErrorData>
+): ErrorType {
     IP_DEMAND_INFO_UPDATE("v1.error.ip.demand.info.update", IpDemandInfoUpdateError::class),
     IP_DEMAND_CREATE("v1.error.ip.demand.create", IpDemandCreateError::class),
     IP_DEMAND_STATUS_CONFIRM("v1.error.ip.demand.status.confirm", IpDemandStatusConfirmError::class),
@@ -21,4 +22,7 @@ enum class IpDemandErrorTypeV1(
     IP_DEMAND_STATUS_REJECT("v1.error.ip.demand.status.reject", IpDemandStatusRejectError::class),
     IP_DEMAND_SUCCESS("v1.error.ip.demand.success", IpDemandSuccessError::class),
     IP_DEMAND_FAILED("v1.error.ip.demand.failed", IpDemandFailedError::class);
+
+    override fun getRoutingKey(): String = routingKey
+    override fun getPayloadType(): KClass<out ErrorData> = errorPayloadType
 }
