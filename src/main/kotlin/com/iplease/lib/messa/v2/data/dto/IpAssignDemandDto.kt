@@ -1,6 +1,6 @@
 package com.iplease.lib.messa.v2.data.dto
 
-import com.iplease.lib.messa.v2.data.type.AssignDemandStatus
+import com.iplease.lib.messa.v2.data.enum.AssignDemandStatus
 import java.time.LocalDate
 
 data class IpAssignDemandDto (

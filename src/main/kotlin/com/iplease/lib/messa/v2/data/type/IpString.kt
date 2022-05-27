@@ -1,4 +1,4 @@
-package com.iplease.lib.messa.v2.data.enum
+package com.iplease.lib.messa.v2.data.type
 
 class IpString (val value: String) {
     companion object{ const val REGEX = "^[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\$" }
