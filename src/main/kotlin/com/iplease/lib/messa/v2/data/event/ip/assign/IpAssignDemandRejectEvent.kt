@@ -1,11 +1,10 @@
-package com.iplease.lib.messa.v2.data.event
+package com.iplease.lib.messa.v2.data.event.ip.assign
 
 import com.iplease.lib.messa.event.data.EventData
 import com.iplease.lib.messa.v2.data.dto.IpAssignDemandDto
-import com.iplease.lib.messa.v2.data.enum.IpString
 
-data class IpAssignDemandAcceptEvent(
+data class IpAssignDemandRejectEvent(
     val demand: IpAssignDemandDto,
     val teacherId: Long,
-    val ip: IpString
+    val reason: String
 ): EventData
