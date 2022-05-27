@@ -13,7 +13,7 @@ import com.iplease.lib.messa.publisher.TypedMessagePublisher
 abstract class SimpleTypedMessageSubscriber<D: MessageData, T: MessageType<D>>(
     private val type: T,
     private val data: D,
-    private val messagePublisher: TypedMessagePublisher<WrongPayloadError>
+    private val messagePublisher: TypedMessagePublisher
 ): TypedMessageSubscriber<D> {
     final override fun deserialize(payload: String): D {
         try {
