@@ -1,4 +1,4 @@
-package com.iplease.lib.messa.exception
+package com.iplease.lib.messa.v2.exception
 
 open class MessageException(
     msg: String,

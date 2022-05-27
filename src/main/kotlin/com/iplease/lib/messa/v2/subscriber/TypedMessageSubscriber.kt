@@ -1,6 +1,6 @@
-package com.iplease.lib.messa.subscriber
+package com.iplease.lib.messa.v2.subscriber
 
-import com.iplease.lib.messa.exception.MessagePayloadSerializeException
+import com.iplease.lib.messa.v2.exception.MessagePayloadSerializeException
 
 interface TypedMessageSubscriber<T: Any>: MessageSubscriber {
     override fun subscribe(routingKey: String, payload: String) {

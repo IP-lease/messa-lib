@@ -1,4 +1,4 @@
-package com.iplease.lib.messa.data.dto
+package com.iplease.lib.messa.v2.data.dto
 
 data class SubnetDto (
     val uuid: Long,

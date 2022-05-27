@@ -1,6 +1,6 @@
-package com.iplease.lib.messa.data.dto
+package com.iplease.lib.messa.v2.data.dto
 
-import com.iplease.lib.messa.data.type.ReleaseDemandStatus
+import com.iplease.lib.messa.v2.data.type.ReleaseDemandStatus
 
 data class IpReleaseDemandDto (
     val uuid: Long,

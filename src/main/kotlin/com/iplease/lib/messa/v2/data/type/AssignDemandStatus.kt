@@ -1,4 +1,4 @@
-package com.iplease.lib.messa.data.type
+package com.iplease.lib.messa.v2.data.type
 
 enum class AssignDemandStatus {
     CREATE, CONFIRM, ACCEPT, REJECT

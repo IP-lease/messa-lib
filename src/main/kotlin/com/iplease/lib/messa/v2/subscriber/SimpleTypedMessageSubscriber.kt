@@ -1,14 +1,14 @@
-package com.iplease.lib.messa.subscriber
+package com.iplease.lib.messa.v2.subscriber
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.iplease.lib.messa.MessageData
 import com.iplease.lib.messa.MessageType
-import com.iplease.lib.messa.error.data.global.WrongPayloadError
 import com.iplease.lib.messa.error.type.GlobalErrorTypeV1
-import com.iplease.lib.messa.exception.MessagePayloadSerializeException
-import com.iplease.lib.messa.publisher.TypedMessagePublisher
+import com.iplease.lib.messa.v2.data.error.WrongPayloadError
+import com.iplease.lib.messa.v2.exception.MessagePayloadSerializeException
+import com.iplease.lib.messa.v2.publisher.TypedMessagePublisher
 
 abstract class SimpleTypedMessageSubscriber<D: MessageData, T: MessageType<D>>(
     private val type: T,

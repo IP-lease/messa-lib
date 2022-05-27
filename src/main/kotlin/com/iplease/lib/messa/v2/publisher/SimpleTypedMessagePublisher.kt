@@ -1,10 +1,10 @@
-package com.iplease.lib.messa.publisher
+package com.iplease.lib.messa.v2.publisher
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.iplease.lib.messa.MessageData
-import com.iplease.lib.messa.exception.MessagePayloadDeserializeException
+import com.iplease.lib.messa.v2.exception.MessagePayloadDeserializeException
 
 abstract class SimpleTypedMessagePublisher: TypedMessagePublisher {
     final override fun <T: MessageData>serialize(payload: T): String {
