@@ -2,6 +2,7 @@ package com.iplease.lib.messa.error.data.ip.demand
 import com.iplease.lib.messa.error.data.ErrorData
 import java.time.LocalDate
 
+@Deprecated("지원 중단된 MessageFormat 입니다.")
 data class IpDemandSuccessError (
     val demandUuid: Long,
     val issuerUuid: Long,
