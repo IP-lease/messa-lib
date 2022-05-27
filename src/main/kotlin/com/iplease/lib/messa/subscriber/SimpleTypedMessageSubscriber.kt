@@ -28,6 +28,6 @@ abstract class SimpleTypedMessageSubscriber<D: MessageData, T: MessageType<D>>(
     final override fun onWrongPayload(payload: String) =
         messagePublisher.publish(
             routingKey = GlobalErrorTypeV1.WRONG_PAYLOAD.getRoutingKey(),
-            payload = WrongPayloadError(payload)
+            payload = WrongPayloadError("이벤트 구독을 위한 역직렬화 도중 오류가 발생하였습니다!", payload)
         )
 }
