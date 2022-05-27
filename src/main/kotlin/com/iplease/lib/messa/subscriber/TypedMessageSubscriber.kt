@@ -1,15 +1,16 @@
 package com.iplease.lib.messa.subscriber
 
-import com.iplease.lib.messa.exception.MessagePayloadParseException
+import com.iplease.lib.messa.exception.MessagePayloadSerializeException
 
-abstract class TypedMessageSubscriber<T: Any>: MessageSubscriber {
-    final override fun subscribe(routingKey: String, payload: String) {
+interface TypedMessageSubscriber<T: Any>: MessageSubscriber {
+    override fun subscribe(routingKey: String, payload: String) {
         if(checkRoutingKey(routingKey)) return
-        try { subscribe(parse(payload)) }
-        catch (e: MessagePayloadParseException) {  }//TODO WrongPayloadError 발행하기
+        try { subscribe(deserialize(payload)) }
+        catch (e: MessagePayloadSerializeException) { onWrongPayload(payload) }
     }
 
-    abstract fun checkRoutingKey(routingKey: String): Boolean
-    abstract fun subscribe(payload: T)
-    abstract fun parse(payload: String): T
+    fun onWrongPayload(payload: String)
+    fun checkRoutingKey(routingKey: String): Boolean
+    fun subscribe(payload: T)
+    fun deserialize(payload: String): T
 }
