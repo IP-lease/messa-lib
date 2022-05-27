@@ -1,4 +1,4 @@
-package com.iplease.lib.messa.v2.data.error
+package com.iplease.lib.messa.v2.data.error.global
 
 import com.iplease.lib.messa.error.data.ErrorData
 

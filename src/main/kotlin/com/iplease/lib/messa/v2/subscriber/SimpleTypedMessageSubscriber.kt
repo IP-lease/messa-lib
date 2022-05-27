@@ -6,7 +6,7 @@ import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.iplease.lib.messa.MessageData
 import com.iplease.lib.messa.MessageType
 import com.iplease.lib.messa.error.type.GlobalErrorTypeV1
-import com.iplease.lib.messa.v2.data.error.WrongPayloadError
+import com.iplease.lib.messa.v2.data.error.global.WrongPayloadError
 import com.iplease.lib.messa.v2.exception.MessagePayloadSerializeException
 import com.iplease.lib.messa.v2.publisher.TypedMessagePublisher
 
